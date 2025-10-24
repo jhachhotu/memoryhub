@@ -1,15 +1,18 @@
 from passlib.context import CryptContext
 
-# Use only Argon2 for password hashing
+# Create password context using bcrypt scheme
 pwd_context = CryptContext(
-    schemes=["argon2"],
-    deprecated="auto"
+    schemes=["bcrypt"],
+    deprecated="auto",
+    bcrypt__rounds=12  # Adjust rounds as needed
 )
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Verify password against hash using Argon2."""
-    return pwd_context.verify(plain_password, hashed_password)
+    try:
+        return pwd_context.verify(plain_password, hashed_password)
+    except Exception as e:
+        print(f"Password verification error: {e}")
+        return False
 
 def get_password_hash(password: str) -> str:
-    """Generate password hash using Argon2."""
     return pwd_context.hash(password)
