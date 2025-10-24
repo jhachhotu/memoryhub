@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'theme/app_theme.dart';
 import 'config/api_config.dart';
 import 'services/auth_service.dart';
 import 'screens/auth/login_screen.dart';
@@ -69,7 +70,9 @@ import 'screens/gdpr/data_export_screen.dart';
 import 'screens/gdpr/account_deletion_screen.dart';
 import 'screens/reactions/reactions_screen.dart';
 import 'screens/home/dashboard_screen.dart';
+import 'screens/home/modern_dashboard_screen.dart';
 import 'screens/family/family_hub_dashboard_screen.dart';
+import 'screens/family/modern_family_hub_screen.dart';
 import 'screens/family/family_albums_screen.dart';
 import 'screens/family/family_timeline_screen.dart';
 import 'screens/family/family_calendar_screen.dart';
@@ -93,198 +96,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Memory Hub',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6366F1),
-          brightness: Brightness.light,
-          primary: const Color(0xFF6366F1),
-          secondary: const Color(0xFFEC4899),
-          tertiary: const Color(0xFF8B5CF6),
-          error: const Color(0xFFEF4444),
-          surface: Colors.white,
-        ),
-        useMaterial3: true,
-        // textTheme: GoogleFonts.interTextTheme(), // Temporarily disabled
-        appBarTheme: AppBarTheme(
-          centerTitle: false,
-          elevation: 0,
-          scrolledUnderElevation: 0,
-          backgroundColor: Colors.transparent,
-          foregroundColor: const Color(0xFF1F2937),
-          titleTextStyle: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF1F2937),
-          ),
-        ),
-        cardTheme: CardThemeData(
-          elevation: 0,
-          shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          color: Colors.white,
-          surfaceTintColor: Colors.transparent,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            backgroundColor: const Color(0xFF6366F1),
-            foregroundColor: Colors.white,
-            textStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: const Color(0xFFEC4899),
-          foregroundColor: Colors.white,
-          elevation: 4,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: const Color(0xFFF9FAFB),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(width: 2, color: Color(0xFF6366F1)),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Color(0xFFEF4444)),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(width: 2, color: Color(0xFFEF4444)),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        ),
-        chipTheme: ChipThemeData(
-          backgroundColor: const Color(0xFFF3F4F6),
-          labelStyle: GoogleFonts.inter(fontSize: 13),
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        dividerTheme: const DividerThemeData(
-          color: Color(0xFFF3F4F6),
-          thickness: 1,
-          space: 1,
-        ),
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF818CF8),
-          brightness: Brightness.dark,
-          primary: const Color(0xFF818CF8),
-          secondary: const Color(0xFFF472B6),
-          tertiary: const Color(0xFFA78BFA),
-          error: const Color(0xFFF87171),
-          surface: const Color(0xFF1F2937),
-        ),
-        useMaterial3: true,
-        textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
-        scaffoldBackgroundColor: const Color(0xFF111827),
-        appBarTheme: AppBarTheme(
-          centerTitle: false,
-          elevation: 0,
-          scrolledUnderElevation: 0,
-          backgroundColor: Colors.transparent,
-          foregroundColor: Colors.white,
-          titleTextStyle: GoogleFonts.inter(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        cardTheme: CardThemeData(
-          elevation: 0,
-          shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          color: const Color(0xFF1F2937),
-          surfaceTintColor: Colors.transparent,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            backgroundColor: const Color(0xFF818CF8),
-            foregroundColor: Colors.white,
-            textStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: const Color(0xFFF472B6),
-          foregroundColor: Colors.white,
-          elevation: 4,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: const Color(0xFF374151),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Color(0xFF4B5563)),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Color(0xFF4B5563)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(width: 2, color: Color(0xFF818CF8)),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Color(0xFFF87171)),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(width: 2, color: Color(0xFFF87171)),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        ),
-        chipTheme: ChipThemeData(
-          backgroundColor: const Color(0xFF374151),
-          labelStyle: const TextStyle(fontSize: 13),
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        dividerTheme: const DividerThemeData(
-          color: Color(0xFF374151),
-          thickness: 1,
-          space: 1,
-        ),
-      ),
-      themeMode: ThemeMode.system,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
       onGenerateRoute: (settings) {
@@ -451,9 +265,9 @@ class MyApp extends StatelessWidget {
               ),
             );
           case '/dashboard':
-            return MaterialPageRoute(builder: (_) => const DashboardScreen());
+            return MaterialPageRoute(builder: (_) => const ModernDashboardScreen());
           case '/family':
-            return MaterialPageRoute(builder: (_) => const FamilyHubDashboardScreen());
+            return MaterialPageRoute(builder: (_) => const ModernFamilyHubScreen());
           case '/family/albums':
             return MaterialPageRoute(builder: (_) => const FamilyAlbumsScreen());
           case '/family/timeline':
@@ -659,7 +473,7 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = const [
-    DashboardScreen(),
+    ModernDashboardScreen(),
     MemoriesListScreen(),
     SocialTabScreen(),
     CollectionsScreen(),

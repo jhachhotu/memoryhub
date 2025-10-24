@@ -45,6 +45,26 @@ class MemoryHubColors {
   static const Color gray700 = Color(0xFF374151);
   static const Color gray800 = Color(0xFF1F2937);
   static const Color gray900 = Color(0xFF111827);
+  
+  // Modern Dark Theme Colors
+  static const Color darkBackground = Color(0xFF000000); // Pure black
+  static const Color darkSurface = Color(0xFF1A1A1A); // Dark gray cards
+  static const Color darkSurfaceElevated = Color(0xFF2A2A2A); // Elevated surfaces
+  static const Color darkBorder = Color(0xFF2A2A2A); // Subtle borders
+  static const Color darkDivider = Color(0xFF1F1F1F); // Dividers
+  
+  // Modern Accent Colors for Dark Theme
+  static const Color accentGreen = Color(0xFF4ADE80); // Vibrant green (like play button)
+  static const Color accentGreenDark = Color(0xFF22C55E); // Darker green
+  static const Color accentPurpleLight = Color(0xFFA78BFA); // Light purple
+  static const Color accentPinkLight = Color(0xFFF472B6); // Light pink
+  static const Color accentBlue = Color(0xFF60A5FA); // Light blue
+  
+  // Dark Theme Text Colors
+  static const Color textDarkPrimary = Color(0xFFFFFFFF); // Pure white
+  static const Color textDarkSecondary = Color(0xFFB3B3B3); // Light gray
+  static const Color textDarkTertiary = Color(0xFF737373); // Medium gray
+  static const Color textDarkDisabled = Color(0xFF525252); // Dark gray
 }
 
 class MemoryHubSpacing {

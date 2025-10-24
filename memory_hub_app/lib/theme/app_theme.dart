@@ -204,7 +204,7 @@ class AppTheme {
         behavior: SnackBarBehavior.floating,
       ),
       
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         backgroundColor: Colors.white,
         elevation: MemoryHubElevation.xxl,
         shape: RoundedRectangleBorder(
@@ -225,20 +225,22 @@ class AppTheme {
 
   static ThemeData get darkTheme {
     final colorScheme = ColorScheme.fromSeed(
-      seedColor: MemoryHubColors.indigo400,
+      seedColor: MemoryHubColors.accentGreen,
       brightness: Brightness.dark,
-      primary: MemoryHubColors.indigo400,
-      secondary: MemoryHubColors.pink400,
-      tertiary: MemoryHubColors.purple400,
+      primary: MemoryHubColors.accentGreen,
+      secondary: MemoryHubColors.accentPurpleLight,
+      tertiary: MemoryHubColors.accentPinkLight,
       error: MemoryHubColors.red400,
-      surface: MemoryHubColors.gray800,
-      surfaceContainerHighest: MemoryHubColors.gray700,
+      surface: MemoryHubColors.darkSurface,
+      surfaceContainerHighest: MemoryHubColors.darkSurfaceElevated,
+      outline: MemoryHubColors.darkBorder,
+      shadow: Colors.black,
     );
 
     return ThemeData(
       colorScheme: colorScheme,
       useMaterial3: true,
-      scaffoldBackgroundColor: MemoryHubColors.gray900,
+      scaffoldBackgroundColor: MemoryHubColors.darkBackground,
       
       textTheme: _buildTextTheme(Brightness.dark),
       
@@ -260,12 +262,16 @@ class AppTheme {
       ),
       
       cardTheme: CardThemeData(
-        elevation: MemoryHubElevation.sm,
-        shadowColor: Colors.black.withOpacity(0.3),
+        elevation: MemoryHubElevation.none,
+        shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: MemoryHubBorderRadius.xlRadius,
+          borderRadius: MemoryHubBorderRadius.lgRadius,
+          side: BorderSide(
+            color: MemoryHubColors.darkBorder,
+            width: 1,
+          ),
         ),
-        color: MemoryHubColors.gray800,
+        color: MemoryHubColors.darkSurface,
         surfaceTintColor: Colors.transparent,
         margin: EdgeInsets.zero,
       ),
@@ -278,10 +284,10 @@ class AppTheme {
             horizontal: MemoryHubSpacing.xxl,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: MemoryHubBorderRadius.lgRadius,
+            borderRadius: MemoryHubBorderRadius.mdRadius,
           ),
-          backgroundColor: MemoryHubColors.indigo400,
-          foregroundColor: Colors.white,
+          backgroundColor: MemoryHubColors.accentGreen,
+          foregroundColor: Colors.black,
           textStyle: GoogleFonts.inter(
             fontSize: MemoryHubTypography.bodyLarge,
             fontWeight: MemoryHubTypography.semiBold,
@@ -296,13 +302,13 @@ class AppTheme {
             horizontal: MemoryHubSpacing.xxl,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: MemoryHubBorderRadius.lgRadius,
+            borderRadius: MemoryHubBorderRadius.mdRadius,
           ),
           side: const BorderSide(
-            color: MemoryHubColors.indigo400,
-            width: 2,
+            color: MemoryHubColors.darkBorder,
+            width: 1,
           ),
-          foregroundColor: MemoryHubColors.indigo400,
+          foregroundColor: MemoryHubColors.textDarkPrimary,
           textStyle: GoogleFonts.inter(
             fontSize: MemoryHubTypography.bodyLarge,
             fontWeight: MemoryHubTypography.semiBold,
@@ -317,9 +323,9 @@ class AppTheme {
             horizontal: MemoryHubSpacing.lg,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: MemoryHubBorderRadius.mdRadius,
+            borderRadius: MemoryHubBorderRadius.smRadius,
           ),
-          foregroundColor: MemoryHubColors.indigo400,
+          foregroundColor: MemoryHubColors.accentGreen,
           textStyle: GoogleFonts.inter(
             fontSize: MemoryHubTypography.bodyMedium,
             fontWeight: MemoryHubTypography.semiBold,
@@ -328,9 +334,9 @@ class AppTheme {
       ),
       
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: MemoryHubColors.pink400,
-        foregroundColor: Colors.white,
-        elevation: MemoryHubElevation.md,
+        backgroundColor: MemoryHubColors.accentGreen,
+        foregroundColor: Colors.black,
+        elevation: MemoryHubElevation.none,
         shape: RoundedRectangleBorder(
           borderRadius: MemoryHubBorderRadius.lgRadius,
         ),
@@ -338,71 +344,72 @@ class AppTheme {
       
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: MemoryHubColors.gray700,
+        fillColor: MemoryHubColors.darkSurface,
         border: OutlineInputBorder(
-          borderRadius: MemoryHubBorderRadius.lgRadius,
-          borderSide: const BorderSide(color: MemoryHubColors.gray600),
+          borderRadius: MemoryHubBorderRadius.mdRadius,
+          borderSide: const BorderSide(color: MemoryHubColors.darkBorder),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: MemoryHubBorderRadius.lgRadius,
-          borderSide: const BorderSide(color: MemoryHubColors.gray600),
+          borderRadius: MemoryHubBorderRadius.mdRadius,
+          borderSide: const BorderSide(color: MemoryHubColors.darkBorder),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: MemoryHubBorderRadius.lgRadius,
+          borderRadius: MemoryHubBorderRadius.mdRadius,
           borderSide: const BorderSide(
             width: 2,
-            color: MemoryHubColors.indigo400,
+            color: MemoryHubColors.accentGreen,
           ),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: MemoryHubBorderRadius.lgRadius,
+          borderRadius: MemoryHubBorderRadius.mdRadius,
           borderSide: const BorderSide(color: MemoryHubColors.red400),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: MemoryHubBorderRadius.lgRadius,
+          borderRadius: MemoryHubBorderRadius.mdRadius,
           borderSide: const BorderSide(
             width: 2,
             color: MemoryHubColors.red400,
           ),
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: MemoryHubSpacing.xl,
+          horizontal: MemoryHubSpacing.lg,
           vertical: MemoryHubSpacing.lg,
         ),
         hintStyle: GoogleFonts.inter(
-          color: MemoryHubColors.gray400,
+          color: MemoryHubColors.textDarkTertiary,
           fontSize: MemoryHubTypography.bodyMedium,
         ),
       ),
       
       chipTheme: ChipThemeData(
-        backgroundColor: MemoryHubColors.gray700,
+        backgroundColor: MemoryHubColors.darkSurfaceElevated,
         labelStyle: GoogleFonts.inter(
           fontSize: MemoryHubTypography.bodySmall,
           fontWeight: MemoryHubTypography.medium,
-          color: Colors.white,
+          color: MemoryHubColors.textDarkPrimary,
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: MemoryHubSpacing.md,
           vertical: MemoryHubSpacing.sm,
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: MemoryHubBorderRadius.mdRadius,
+          borderRadius: MemoryHubBorderRadius.smRadius,
+          side: BorderSide(color: MemoryHubColors.darkBorder),
         ),
       ),
       
       dividerTheme: const DividerThemeData(
-        color: MemoryHubColors.gray700,
+        color: MemoryHubColors.darkDivider,
         thickness: 1,
         space: 1,
       ),
       
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: MemoryHubColors.gray800,
-        selectedItemColor: MemoryHubColors.indigo400,
-        unselectedItemColor: MemoryHubColors.gray400,
+        backgroundColor: MemoryHubColors.darkSurface,
+        selectedItemColor: MemoryHubColors.accentGreen,
+        unselectedItemColor: MemoryHubColors.textDarkTertiary,
         type: BottomNavigationBarType.fixed,
-        elevation: MemoryHubElevation.lg,
+        elevation: MemoryHubElevation.none,
         selectedLabelStyle: GoogleFonts.inter(
           fontSize: MemoryHubTypography.caption,
           fontWeight: MemoryHubTypography.semiBold,
@@ -414,32 +421,36 @@ class AppTheme {
       ),
       
       snackBarTheme: SnackBarThemeData(
-        backgroundColor: MemoryHubColors.gray700,
+        backgroundColor: MemoryHubColors.darkSurfaceElevated,
         contentTextStyle: GoogleFonts.inter(
-          color: Colors.white,
+          color: MemoryHubColors.textDarkPrimary,
           fontSize: MemoryHubTypography.bodyMedium,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: MemoryHubBorderRadius.mdRadius,
+          side: BorderSide(color: MemoryHubColors.darkBorder),
         ),
         behavior: SnackBarBehavior.floating,
       ),
       
-      dialogTheme: DialogTheme(
-        backgroundColor: MemoryHubColors.gray800,
-        elevation: MemoryHubElevation.xxl,
+      dialogTheme: DialogThemeData(
+        backgroundColor: MemoryHubColors.darkSurface,
+        elevation: MemoryHubElevation.none,
         shape: RoundedRectangleBorder(
-          borderRadius: MemoryHubBorderRadius.xxlRadius,
+          borderRadius: MemoryHubBorderRadius.xlRadius,
+          side: const BorderSide(color: MemoryHubColors.darkBorder),
         ),
         titleTextStyle: GoogleFonts.inter(
           fontSize: MemoryHubTypography.h3,
           fontWeight: MemoryHubTypography.bold,
-          color: Colors.white,
+          color: MemoryHubColors.textDarkPrimary,
         ),
       ),
       
       progressIndicatorTheme: const ProgressIndicatorThemeData(
-        color: MemoryHubColors.indigo400,
+        color: MemoryHubColors.accentGreen,
+        linearTrackColor: MemoryHubColors.darkSurfaceElevated,
+        circularTrackColor: MemoryHubColors.darkSurfaceElevated,
       ),
     );
   }
